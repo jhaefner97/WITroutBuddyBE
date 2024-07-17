@@ -1,6 +1,6 @@
 import requests
 
-from core.data_models.weather_api_model import Model
+from core.data_models.stream_data import Model
 from core.utilities.utils import USGSStreamData
 
 def get_stream_data_by_site(site_number: str) -> Model:

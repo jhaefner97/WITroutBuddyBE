@@ -3,8 +3,7 @@
 ## Requirements  
  - Python 3.10+ (Preferably 3.11+)
  - Requirements outlined in requirements.txt
- - Have .env file in directory
-   - accu_weather_key={APIKEY}
+ - .env file w/ configs
 
 ## How to run
  - Clone repo to local machine

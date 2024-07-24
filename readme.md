@@ -1,4 +1,4 @@
-# Fish Assist Weather API
+# WI Trout Buddy
 
 ## Requirements  
  - Python 3.10+ (Preferably 3.11+)

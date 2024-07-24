@@ -5,7 +5,10 @@ from core.data_models.stream_data import Model
 from core.data_models.sql.site_data import SiteData
 from core.utilities.utils import USGSStreamData, APIStatus
 from core.utilities.db import session
+from core.utilities.log import get_logger
 from datetime import datetime, UTC
+
+logger = get_logger()
 
 def get_stream_data_by_site(site_number: str) -> Model:
 
@@ -45,11 +48,14 @@ def get_stream_data_by_site(site_number: str) -> Model:
         try:
             session.add(site_data)
             session.commit()
+            logger.info("Data saved to the database")
         except Exception as e:
             session.rollback()
             api_response["Message"] = APIStatus.db_error.value + f": {str(e)}"
+            logger.error(f"Error saving data to the database: {str(e)}")
 
     else:
         api_response["Message"] = APIStatus.no_data.value
 
+    logger.info(f"API response: {json.dumps(api_response)}")
     return api_response
